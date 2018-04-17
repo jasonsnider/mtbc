@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Onchange</title>
+  </head>
+  <body>
+
+    <div id="Demo"></div>
+
+    <select id="Options">
+      <option>--Pick an Option--</option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+    </select>
+
+    <script>
+      function setValue(target, from){
+
+        let option = document.getElementById(from).value;
+        document.getElementById(target).innerHTML = option;
+      }
+
+      var list = document.getElementById('Options');
+      list.addEventListener(
+        'change', 
+        ()=>{ setValue('Demo', 'Options') } 
+      );
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Walking the DOM</title>
+  </head>
+  <body>
+
+    <a href="#Sample" class="home" id="SampleLink">Sample Link</a>
+    <a href="#Other">Another Link</a>
+
+    <p class="home">The quick brown fox jumps over the laxy dog.</p>
+
+    <input name="email" placeholder="email">
+ 
+    <script>
+      var list = document.getElementsByClassName('home');
+      for(var i =0; i<list.length; i++){
+        list[i].style = 'color: #ff0000';
+      }
+
+      var emailList = document.getElementsByName('email');
+      for(email of emailList){
+        email.value="sally@example.com";
+      }
+
+      var sampleLink = document.querySelector('#SampleLink');
+      console.log(sampleLink);
+
+      var homeList = document.querySelectorAll('.home');
+      console.log(homeList);
+
+      var anchors = document.querySelectorAll('[href="#Sample"]');
+      console.log(anchors);
+      
+    </script>
+
+  </body>
+</html>

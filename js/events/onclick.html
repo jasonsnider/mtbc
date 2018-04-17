@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Onclick</title>
+  </head>
+  <body>
+
+    <div id="Demo"></div>
+
+    <button id="GetTime">What time is it?</button>
+
+    <script>
+      function showDate(target){
+        document.getElementById(target).innerHTML = Date();
+      }
+
+      var btn = document.getElementById('GetTime');
+      btn.addEventListener('click', ()=>{ showDate('Demo') } );
+    </script>
+
+  </body>
+</html>

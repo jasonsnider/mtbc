@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Interval</title>
+      <style>
+        #Demo {
+          background: #000;
+          height: 100px;
+          width: 100px;
+        }
+      </style>
+  </head>
+  <body>
+
+    <div id="Demo"></div>
+
+    <button id="GrowBtn">Grow</button>
+
+    <script>
+
+      function Grower() {
+
+        this.color = rand();
+
+        //Get the current width of the target element
+        this.width = document.getElementById('Demo').offsetWidth;
+
+        //Set a counter to the current width
+        this.num = this.width;
+
+        //Execute the counter on a set interval
+        this.timer = setInterval(()=>{
+          //Increment the counter
+          this.num++;
+
+          if(this.num === this.width + 50){
+            this.color = rand();
+          } 
+
+          document.getElementById('Demo').style = 
+            'width:' + this.num + 'px;' +
+            'background:#' + this.color + ';';
+
+
+
+          //After 100 iterations kill the timer.
+          if(this.num === this.width + 100){
+            clearInterval(this.timer);
+          }
+
+        },50);
+      }
+
+      function rand() {
+        return Math.floor(Math.random()*16777215).toString(16);
+      }
+
+      var btn = document.getElementById('GrowBtn');
+      btn.addEventListener('click', function(){ new Grower(); });
+    </script>
+
+  </body>
+</html>
