@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Grow Cricle</title>
+  </head>
+  <body>
+
+    <canvas id="canvas" height="800px" width="800px"></canvas>
+
+    <script>
+        var x=200;
+        var y=400;
+        var r=83;
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        function circle(x, y, r, ctx){
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 6.28);
+            ctx.strokeStyle = '#000099';
+            ctx.fillStyle = '#990000';
+            ctx.stroke();
+            ctx.fill();
+        }
+
+        var $timer = setInterval(
+            ()=>{
+
+                circle(x, y, r++, ctx);
+
+                if(r>=166){
+                    clearInterval($timer);
+                }
+            },
+            100
+        );
+
+    </script>
+
+  </body>
+</html>
